@@ -5,13 +5,20 @@ const UserModel = require("../models/user");
 class Authenticationcontroller {
 
     // #TODO:
-    static loginUser(_,_) {
+    static loginUser(req, res) {
 
-        UserModel.loginUser( );
+        UserModel.loginUser(req.body)
+        .then((result)=>{
+            res.status(200).send(result);
+        })
+        .catch((err)=>{
+            res.status(500).send({err:err});
+        });
+
     }
     
     // #TODO:
-    static registerUser(_,_) {
+    static registerUser(req, res) {
 
         UserModel.registerUser();
     }

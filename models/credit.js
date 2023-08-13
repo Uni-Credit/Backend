@@ -11,13 +11,15 @@ class CreditModel {
         // Passo 1: Pegar o crédito atual
         var creditoAtual = await CreditModel.getCredit();
         print(creditoAtual);
+
         // Passo 2: Soma o crédito atual e a adição
        
        // var credito = credtioAtual.credit + addition;
+
         
        // Passo 3: Salvar a nova quantidade de créditos
         
-       saveNewCredits(credito);
+       saveNewCredits(creditoAtual);
     }
 
     static async getCredit(userId)  {
@@ -28,7 +30,7 @@ class CreditModel {
 
 
     static async saveNewCredits(credit) {
-        // Update Table
+        // Update Table 
     }
 
     static createCreditModel() { 

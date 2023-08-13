@@ -12,7 +12,7 @@ class UserModel {
 
     static async loginUser(credentials){
         
-        pool.query(`
+        return await pool.query(`
             SELECT * FROM Cliente 
             WHERE Matricula = ${credentials.matricula} AND Senha = ${credentials.password}
         ` );
@@ -21,7 +21,7 @@ class UserModel {
 
     static async registerUser(userInformation){
         
-        pool.query(`
+        return await pool.query(`
            INSERT INTO Cliente (Nome, Email, Senha, Matricula)
            VALUES ${userInformation.name}, ${userInformation.email},
            ${userInformation.password},

@@ -5,7 +5,7 @@ const pool = require("../services/db")
 class AdminModel {
 
 
-    static createAdminTable {
+    static createAdminTable() {
         pool.query(`
         CREATE TABLE IF NOT EXISTS Admin (
             ID_ADMIN INT PRIMARY KEY,
