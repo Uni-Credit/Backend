@@ -6,27 +6,27 @@ const pool = require("../services/db");
 class UserModel {
 
 
-    static returnUsersCadastrated(){ 
+    static async returnUsersCadastrated(){ 
         // ´pool.query
     }
 
-    static loginUser(credentials, callback){
+    static async loginUser(credentials){
         
         pool.query(`
             SELECT * FROM Cliente 
             WHERE Matricula = ${credentials.matricula} AND Senha = ${credentials.password}
-        `,callback );
+        ` );
     }
 
 
-    static registerUser(userInformation, callback){
+    static async registerUser(userInformation){
         
         pool.query(`
            INSERT INTO Cliente (Nome, Email, Senha, Matricula)
            VALUES ${userInformation.name}, ${userInformation.email},
            ${userInformation.password},
            ${userInformation.matricula},
-        `, callback);
+        `);
     }
 
 
