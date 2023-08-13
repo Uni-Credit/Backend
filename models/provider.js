@@ -4,6 +4,12 @@
 class ProviderModel {
 
 
+    static getProviders() {
+
+    }
+
+    
+
     static createProviderTable() {
         pool.query(`
         CREATE TABLE IF NOT EXISTS Provider (

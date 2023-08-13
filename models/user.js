@@ -32,6 +32,7 @@ class UserModel {
 
 
     static createUserTable() {
+        // #TODO: register date
         pool.query(`
         CREATE TABLE IF NOT EXISTS Cliente (
             ID_USER INT PRIMARY KEY,
