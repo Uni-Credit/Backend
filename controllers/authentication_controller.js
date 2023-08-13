@@ -23,3 +23,5 @@ class Authenticationcontroller {
         UserModel.registerUser();
     }
 }
+
+module.exports = Authenticationcontroller

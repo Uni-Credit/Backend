@@ -6,17 +6,17 @@ class CreditController {
 
 
     // #TODO:
-    static makeDeposit() {
+    static makeDeposit(req, res) {
 
     }
 
     // #TODO:
-    static maketransaction() {
+    static maketransaction(req, res) {
 
     }
 
     // #TODO:
-    static getCreditInformationFromUser() {
+    static getCreditInformationFromUser(req, res) {
 
     }
 

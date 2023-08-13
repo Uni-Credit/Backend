@@ -3,7 +3,11 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors"); 
 const app = express();
+const authenticationRoute = require('./routes/auth.js');
  
+const transactionRoute = require('./routes/transaction.js');
+
+
 // * Cors
 app.use(cors());
 
@@ -21,5 +25,5 @@ let PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
 
-app.use('auth/', /* Authentication Route */);
-app.use('transaction/', /* Transactions Route */);
+app.use('auth/', authenticationRoute);
+app.use('transaction/', transactionRoute);
