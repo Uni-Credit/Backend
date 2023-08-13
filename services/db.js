@@ -1,6 +1,7 @@
 
 
 
+const CreditModel = require('../models/credit.js');
 const UserModel = require('../models/user.js');
 
 const mysql = require('mysql2') ;
@@ -15,6 +16,7 @@ const pool = mysql.createPool({
   });
    
 UserModel.createUserTable();
+CreditModel.createCreditModel();
 
 
 module.exports = pool
