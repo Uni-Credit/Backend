@@ -3,21 +3,18 @@
 
 const UserModel = require('../models/user.js');
 
-const mysql = require('mysql') ;
-const pool = mysql.createPool( {
-    host: 'localhost', 
-    user: 'root', 
-    password: 'rootuser',
+const mysql = require('mysql2') ;
 
-} );
+ 
 
-//const DBNAME = 'unicreditdb';
+const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    database: 'unicredit', 
+    password: 'rootuser'
+  });
+   
+UserModel.createUserTable();
 
-UserModel.createUserTable(pool);
 
-
-
-void createProviderTable() {
-    pool.query('');
-}
-
+module.exports = pool
