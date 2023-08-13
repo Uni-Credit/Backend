@@ -20,7 +20,11 @@ class Authenticationcontroller {
     // #TODO:
     static registerUser(req, res) {
 
-        UserModel.registerUser();
+        UserModel.registerUser(req.body).then((result)=>{
+            res.status(200).send(result);
+        }).catch((err)=>{
+            res.status(500).send({err:err});
+        });
     }
 }
 
