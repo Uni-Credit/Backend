@@ -1,4 +1,4 @@
-const pool = require("../services/db");
+const promisePool = require("../services/db");
 
 
 
@@ -23,7 +23,8 @@ class CreditModel {
     }
 
     static async getCredit(userId)  {
-        return await pool.query(`
+
+        return await promisePool.query(`
         SELECT value FROM Credit WHERE userId = ${userId}
         `);
     }
@@ -33,17 +34,23 @@ class CreditModel {
  
     }
 
-    static createCreditModel() { 
-        pool.query(`
+    static async createCreditModel()  { 
+
+        
+        //const connection = await pool.getConnection();
+
+        promisePool.query(` 
         CREATE TABLE IF NOT EXISTS Credito (
         ID INT PRIMARY KEY,
-        Valor FLOAT,
-        ID_PROVIDOR INT, 
+        Valor FLOAT, 
+        ID_PROVIDER INT, 
         ID_USER INT,
         FOREIGN KEY (ID_USER) REFERENCES Cliente(ID_USER),
-        FOREIGN KEY (ID_PROVIDER) REFERENCES Provedor(ID_PROVIDER),
+        FOREIGN KEY (ID_PROVIDER) REFERENCES Provider(ID_PROVIDER)
     )
         `);
+
+        //connection.release();  
     }
 }
 

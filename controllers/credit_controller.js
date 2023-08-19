@@ -21,4 +21,4 @@ class CreditController {
     }
 
 
-}
+}module.exports = CreditController

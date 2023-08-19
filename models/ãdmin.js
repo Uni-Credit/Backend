@@ -11,7 +11,7 @@ class AdminModel {
             ID_ADMIN INT PRIMARY KEY,
         Nome VARCHAR(100),
         Email VARCHAR(100),
-        Senha VARCHAR(50), 
+        Senha VARCHAR(50)
     )
         `);
     }

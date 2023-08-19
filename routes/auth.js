@@ -7,12 +7,10 @@ const Authenticationcontroller = require('../controllers/authentication_controll
 const router=express.Router()
 
 
-// Registrar usuário
 router.post("/register", Authenticationcontroller.registerUser);
 
 router.post("/login", Authenticationcontroller.loginUser);
 
-
-
-
 module.exports=router;
+
+

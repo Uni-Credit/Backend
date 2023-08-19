@@ -6,6 +6,8 @@ const app = express();
 const authenticationRoute = require('./routes/auth.js');
  
 const transactionRoute = require('./routes/transaction.js');
+const ModelsController = require("./models/index.js");
+const pool = require("./services/db.js");
 
 
 // * Cors
@@ -26,4 +28,7 @@ let PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
 
 app.use('auth/', authenticationRoute);
-app.use('transaction/', transactionRoute);
+app.use('transaction/', transactionRoute); 
+ 
+
+ModelsController.createModels();

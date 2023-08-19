@@ -4,7 +4,7 @@ const UserModel = require("../models/user");
 
 class Authenticationcontroller {
 
-    // #TODO:
+    // #TODO
     static loginUser(req, res) {
 
         UserModel.loginUser(req.body)
@@ -16,8 +16,8 @@ class Authenticationcontroller {
         });
 
     }
-    
-    // #TODO:
+     
+    // #TODO
     static registerUser(req, res) {
 
         UserModel.registerUser(req.body).then((result)=>{
@@ -26,6 +26,7 @@ class Authenticationcontroller {
             res.status(500).send({err:err});
         });
     }
+    
 }
 
 module.exports = Authenticationcontroller

@@ -1,26 +1,23 @@
 
 
 
-const CreditModel = require('../models/credit.js');
-const ProviderModel = require('../models/provider.js');
-const UserModel = require('../models/user.js');
 
 const mysql = require('mysql2') ;
-const AdminModel = require('../models/ãdmin.js');
 
- 
 
-const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
+
+
+const pool =  mysql.createPool({
+    host: 'db4free.net',
+    port: '3306',
+    user: 'root_user123',
     database: 'unicredit', 
-    password: 'rootuser'
+    password: 'rootuser123', 
   });
-   
-UserModel.createUserTable();
-CreditModel.createCreditModel();
 
-ProviderModel.createCreditModel();
-AdminModel.createAdminTable();
 
-module.exports = pool
+  console.log(pool);
+
+  
+  const promisePool = pool.promise();
+module.exports = promisePool

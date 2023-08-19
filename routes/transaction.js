@@ -9,9 +9,9 @@
  
 const express=require('express'); 
 const router=express.Router()
+const CreditController = require('../controllers/credit_controller.js');
 
-
-
+ 
 // Pegar todas as informações de crédito de um usuário
 router.get("/credits", CreditController.getCreditInformationFromUser );
 
