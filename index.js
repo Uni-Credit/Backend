@@ -19,16 +19,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("short"));
 
 
-app.use("*", (req, res) => {
-  res.send("Route not found");
-});
 
-let PORT = process.env.PORT || 3000;
+let PORT = process.env.PORT || 3000; 
 
 app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
-
-app.use('auth/', authenticationRoute);
-app.use('transaction/', transactionRoute); 
  
-
+app.use('/auth', authenticationRoute);
+app.use('/transaction', transactionRoute); 
+  
 ModelsController.createModels();
+app.use("*", (req, res) => { 
+  res.send("Route not found");
+});
