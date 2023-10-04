@@ -1,4 +1,4 @@
-const promisePool = require("../services/db");
+const pool = require("../services/db");
 
 
 
@@ -11,47 +11,37 @@ class CreditModel {
         // Passo 1: Pegar o crédito atual
         var creditoAtual = await CreditModel.getCredit();
         print(creditoAtual);
-
         // Passo 2: Soma o crédito atual e a adição
        
        // var credito = credtioAtual.credit + addition;
-
         
        // Passo 3: Salvar a nova quantidade de créditos
         
-       saveNewCredits(creditoAtual);
+       saveNewCredits(credito);
     }
 
     static async getCredit(userId)  {
-
-        return await promisePool.query(`
+        return await pool.query(`
         SELECT value FROM Credit WHERE userId = ${userId}
         `);
     }
 
 
     static async saveNewCredits(credit) {
-            
         // Update Table
     }
 
-    static async createCreditModel()  { 
-
-        
-        //const connection = await pool.getConnection();
-
-        promisePool.query(` 
+    static createCreditModel() { 
+        pool.query(`
         CREATE TABLE IF NOT EXISTS Credito (
         ID INT PRIMARY KEY,
-        Valor FLOAT, 
-        ID_PROVIDER INT, 
+        Valor FLOAT,
+        ID_PROVIDOR INT, 
         ID_USER INT,
         FOREIGN KEY (ID_USER) REFERENCES Cliente(ID_USER),
-        FOREIGN KEY (ID_PROVIDER) REFERENCES Provider(ID_PROVIDER)
+        FOREIGN KEY (ID_PROVIDER) REFERENCES Provedor(ID_PROVIDER),
     )
         `);
-
-        //connection.release();  
     }
 }
 
