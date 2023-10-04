@@ -28,6 +28,7 @@ class CreditModel {
 
 
     static async saveNewCredits(credit) {
+            }
         // Update Table
     }
 
