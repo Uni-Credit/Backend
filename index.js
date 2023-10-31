@@ -14,11 +14,10 @@ const pool = require("./services/db.js");
 app.use(cors());
 
 // * Body Parser
-app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("short"));
-
-
+app.use(express.json());
 
 let PORT = process.env.PORT || 3000; 
 

@@ -1,7 +1,5 @@
 const UserModel = require("../models/user");
 
-
-
 class Authenticationcontroller {
 
     // #TODO
@@ -22,12 +20,11 @@ class Authenticationcontroller {
 
         UserModel.loginUser(req.body)
         .then((result)=>{
-            res.status(200).send(result);
+            res.status(200).send(result[0]);
         })
         .catch((err)=>{
             res.status(500).send({err:err});
         });
-
     }
      
     // #TODO
