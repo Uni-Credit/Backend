@@ -22,7 +22,13 @@ class CreditModel {
        saveNewCredits(creditoAtual);
     }
 
+    // Retorna modelo de crédito com base no usuário
+    // 1 usuario -> n créditos (lista de créditos)
     static async getCredit(userId)  {
+
+        // id do provedor -> informações do provedor
+        // informações de crédito
+
 
         return await promisePool.query(`
         SELECT value FROM Credit WHERE userId = ${userId}

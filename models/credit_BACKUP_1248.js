@@ -31,12 +31,8 @@ class CreditModel {
 
 
     static async saveNewCredits(credit) {
-<<<<<<< HEAD
-            }
+            
         // Update Table
-=======
- 
->>>>>>> 2d8a4b6c6e398a655c5fccae5f35aa6ca3d407e2
     }
 
     static async createCreditModel()  { 
