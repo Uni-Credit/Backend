@@ -20,7 +20,20 @@ class Authenticationcontroller {
 
         UserModel.loginUser(req.body)
         .then((result)=>{
-            res.status(200).send(result[0]);
+
+        
+            console.log(result);
+            var resulted = result[0];
+
+            console.log(resulted.toString()); 
+            if(resulted.length == 0) {
+                res.status(400).send({ 
+                    "message": "Email ou Senha incorretos!"
+                });
+                return;
+            }
+
+            res.status(200).send(resulted);
         })
         .catch((err)=>{
             res.status(500).send({err:err});
@@ -30,6 +43,8 @@ class Authenticationcontroller {
     // #TODO
     static registerUser(req, res) {
 
+        
+        console.log(req.body);
         UserModel.registerUser(req.body).then((result)=>{
             res.status(200).send(result);
         }).catch((err)=>{

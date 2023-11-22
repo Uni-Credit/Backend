@@ -14,9 +14,9 @@ class ModelsController {
     static createModels() { 
         
         UserModel.createUserTable();
-        ProviderModel.createProviderTable();
-        CreditModel.createCreditModel();
-        AdminModel.createAdminTable();
+        ProviderModel.createProviderTable(); 
+        CreditModel.createCreditModel(); 
+        AdminModel.createAdminTable(); 
     }
 } 
 
