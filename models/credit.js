@@ -24,7 +24,7 @@ class CreditModel {
 
     static async getCredit(userId)  {
 
-        return await promisePool.query(`
+        return await promisePool.query(` 
         SELECT value FROM Credit WHERE userId = ${userId}
         `);
     }
@@ -49,7 +49,7 @@ class CreditModel {
         FOREIGN KEY (ID_PROVIDER) REFERENCES Provider(ID_PROVIDER)
     )
         `);
-
+ 
         //connection.release();  
     }
 }

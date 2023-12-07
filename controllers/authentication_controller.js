@@ -2,7 +2,13 @@ const UserModel = require("../models/user");
 
 class Authenticationcontroller {
 
-    // #TODO
+
+    static async getUsers(req, res)  {
+        res.status(200).send(
+            await UserModel.getUsers()
+        );
+    }
+    // #TODO 
     static loginUser(req, res) {
 
         console.log(req.body);

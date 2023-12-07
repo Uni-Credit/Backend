@@ -15,7 +15,7 @@ class UserModel {
         
         return await promisePool.query(`
             SELECT * FROM Cliente 
-            WHERE Matricula = ${credentials.matricula} AND Senha = 
+            WHERE Matricula = "${credentials.matricula}" AND Senha = 
             "${credentials.password}"
         ` ); 
     }
@@ -32,6 +32,12 @@ class UserModel {
     }
 
 
+    static async getUsers() {
+        return await promisePool.query(
+            `SELECT * FROM  Cliente
+            ` 
+        );
+    }
 
     static createUserTable() {
 
