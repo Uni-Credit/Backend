@@ -22,5 +22,9 @@ router.post("/deposit", CreditController.makeDeposit );
 router.post("/transact", CreditController.maketransaction );
 
 
+
+// Histórico de Créditos
+router.get("/historic", CreditController.getHistoric );
+
 module.exports=router;
 

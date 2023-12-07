@@ -26,7 +26,7 @@ class UserModel {
         return await promisePool.query(`
            INSERT INTO Cliente (Nome, Email, Senha, Matricula)
            VALUES ("${userInformation.name}", "${userInformation.email}",
-           "${userInformation.password}", 
+           "${userInformation.password}",  
            "${userInformation.matricula}")
         `);
     }
@@ -35,7 +35,7 @@ class UserModel {
     static async getUsers() {
         return await promisePool.query(
             `SELECT * FROM  Cliente
-            ` 
+            `  
         );
     }
 

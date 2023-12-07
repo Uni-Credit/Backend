@@ -18,6 +18,11 @@ class ProviderModel {
             Name VARCHAR(100)
     )
         `);
+        promisePool.query(`
+        INSERT IGNORE INTO Provider (ID_PROVIDER, Name) VALUES
+        (1, 'RU 1'),
+        (2, 'RU 2') 
+      `);
     }
 } 
 
