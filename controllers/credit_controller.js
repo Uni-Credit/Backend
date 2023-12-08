@@ -8,7 +8,7 @@ class CreditController {
     try {
       const { userId, amount, providerId } = req.body;
 
-      if (!userId || !amount || !providerId) {
+      if (!userId || amount == null || !providerId) {
         return res.status(400).json({ error: 'userId, amount and providerId are required' });
       }
   
@@ -47,13 +47,13 @@ class CreditController {
     try {
       const { userId, providerId, cost } = req.body;
 
-      if (!userId || !cost) {
+      if (!userId || cost == null) {
         return res.status(400).json({ error: 'userId and cost are required' });
       }
 
       // Validate if the user has sufficient credit (you might want to implement this)
       // ...
-
+ 
       let success = await CreditModel.maketransaction(userId,providerId, cost);
  
       return res.status(success ? 200 : 400)
@@ -67,6 +67,11 @@ class CreditController {
   // Get credit information for a user
   static async getCreditInformationFromUser(req, res) {
     try {
+
+      console.log("getCreditInformationFromUser");
+      console.log(req.body); 
+      console.log(req.params); 
+      
       const { userId , providerId } = req.body;
 
       if (!userId) {

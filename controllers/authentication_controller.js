@@ -1,4 +1,5 @@
 const UserModel = require("../models/user");
+const CreditModel = require('../models/credit');
 
 class Authenticationcontroller {
 
@@ -25,7 +26,7 @@ class Authenticationcontroller {
         }
 
         UserModel.loginUser(req.body)
-        .then((result)=>{
+        .then(async (result) => {
 
         
             console.log(result);
@@ -38,8 +39,13 @@ class Authenticationcontroller {
                 });
                 return;
             }
+ 
+            let userId = resulted[0]["ID_USER"];
+            await CreditModel.depositCredit(userId, 0, 1); 
+            await CreditModel.depositCredit(userId, 0, 2);  
 
-            res.status(200).send(resulted);
+
+            res.status(200).send(resulted); 
         })
         .catch((err)=>{
             res.status(500).send({err:err});

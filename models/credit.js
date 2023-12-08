@@ -80,7 +80,7 @@ class CreditModel {
     
         if (result.length > 0) {
           return result;
-        } else {
+        } else { 
           // Assuming default value if no record is found
           return [{ Valor: 0 }]; 
         }

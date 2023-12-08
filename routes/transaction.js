@@ -13,7 +13,7 @@ const CreditController = require('../controllers/credit_controller.js');
 
  
 // Pegar todas as informações de crédito de um usuário
-router.get("/credits", CreditController.getCreditInformationFromUser );
+router.post("/credits", CreditController.getCreditInformationFromUser );
 
 // Depósitar determinado crédito
 router.post("/deposit", CreditController.makeDeposit );
@@ -24,7 +24,8 @@ router.post("/transact", CreditController.maketransaction );
 
 
 // Histórico de Créditos
-router.get("/historic", CreditController.getHistoric );
+router.post("/historic", CreditController.getHistoric );
 
 module.exports=router;
 
+ 
